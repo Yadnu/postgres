@@ -28,7 +28,20 @@ async function createTable() {
 
     console.log("Table created successfully!");
 }
+async function  createTable1() {
+    const createUserTableQuery = `
+    CREATE TABLE user(id SERIAL PRIMARY KEY,
+    email VARCHAR(256) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL        
+        );
+    `
+    const client = await getClient();
 
+    await client.query(createUserTableQuery);
+
+
+    
+}
 
 
 createTable();
